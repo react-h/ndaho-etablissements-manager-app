@@ -18,12 +18,11 @@ const ContactForm = (props) => {
                     {
                     ...register("firstname", {
                         required: "Please enter your first name",
-                        minLength: { value: 8, message: "Too short" }
                     })
                     }
                 />
                 {errors.firstname && <p className="error-warning">{errors.firstname.message}</p>}
-                
+
                 <input type="text" placeholder="Last Name"
 
                     {...register("lastname", {
@@ -36,7 +35,7 @@ const ContactForm = (props) => {
                     {...register("password",
                         {
                             required: "Please enter your password",
-
+                            minLength: { value: 8, message: "Too short" }
                         })}
                 />
                 {errors.password && <p className="error-warning">{errors.password.message}</p>}
