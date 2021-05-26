@@ -13,9 +13,33 @@ const ContactForm = (props) => {
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" placeholder="First Name" {...register("firstname")} />
-                <input type="text" placeholder="Last Name" {...register("lastname")} />
-                <input type="password" placeholder="Your password" {...register("password")} />
+                <input type="text"
+                    placeholder="First Name"
+                    {
+                    ...register("firstname", {
+                        required: "Please enter your first name",
+                        minLength: { value: 8, message: "Too short" }
+                    })
+                    }
+                />
+                {errors.firstname && <p className="error-warning">{errors.firstname.message}</p>}
+                
+                <input type="text" placeholder="Last Name"
+
+                    {...register("lastname", {
+                        required: "Please enter your last name",
+                    })} />
+                {errors.lastname && <p className="error-warning">{errors.lastname.message}</p>}
+
+                <input type="password"
+                    placeholder="Your password"
+                    {...register("password",
+                        {
+                            required: "Please enter your password",
+
+                        })}
+                />
+                {errors.password && <p className="error-warning">{errors.password.message}</p>}
                 <input type="submit" />
             </form>
 
