@@ -12,3 +12,15 @@ h1,h2,h3{
 .footer{
     height: 40px;
 }
+
+.contact-subtitle{
+    font-size: $h2-font-size;
+    font-weight: 400;
+    &--inline{
+        display: inline-block;
+    }
+}
+
+form input{
+    display: block;
+}
