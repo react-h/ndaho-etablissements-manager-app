@@ -1,5 +1,8 @@
 import React from 'react';
-import Button from '../../../components/UI/Button';
+import ContactForm from '../../../components/UI/ContactForm';
+import { Route } from "react-router-dom"
+import Button from 'react-bootstrap/Button';
+import {LinkContainer} from 'react-router-bootstrap'
 
 const Contact = (props) => {
 
@@ -19,7 +22,10 @@ const Contact = (props) => {
             </div>
             <div>
                 <div className="contact-subtitle contact-subtitle--inline">Vous préferez nous écrire? </div>
-                <Button btnType="btn-primary" clic={handleContactForm}>Formulaire de contact</Button>
+                <LinkContainer to="/contact/form" exact >
+                <Button variant="primary">Formulaire contact</Button>
+                </LinkContainer>
+                <Route path="/contact/form" exact render={props => <ContactForm {...props} />} />
             </div>
         </div>
     )

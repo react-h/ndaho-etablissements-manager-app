@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import Stats from "./Stats";
 
+
 const ContactForm = (props) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -12,7 +13,7 @@ const ContactForm = (props) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} >
                 <input type="text"
                     placeholder="First Name"
                     {
@@ -30,15 +31,15 @@ const ContactForm = (props) => {
                     })} />
                 {errors.lastname && <p className="error-warning">{errors.lastname.message}</p>}
 
-                <input type="password"
-                    placeholder="Your password"
-                    {...register("password",
+                <textarea  
+                    placeholder="Your message"
+                    {...register("message",
                         {
-                            required: "Please enter your password",
+                            required: "Please enter your message",
                             minLength: { value: 8, message: "Too short" }
                         })}
                 />
-                {errors.password && <p className="error-warning">{errors.password.message}</p>}
+                {errors.message && <p className="error-warning">{errors.message.message}</p>}
                 <input type="submit" />
             </form>
 

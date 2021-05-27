@@ -8,7 +8,6 @@ import Container from 'react-bootstrap/Container';
 import Erreur404 from '../../components/UI/Erreur404';
 import Erreur from '../../components/UI/Erreur';
 import Footer from '../../components/UI/Footer';
-import ContactForm from '../../components/UI/ContactForm';
 
 
 const Site = (props) => (
@@ -19,8 +18,7 @@ const Site = (props) => (
                 <Switch>
                     <Route path="/" component={Accueil} exact />
                     <Route path="/localisation" render={() => <Localisation />} exact />
-                    <Route path="/contact" render={props => <Contact {...props} />} exact />
-                    <Route path="/contact/form" render={props => <ContactForm {...props} />} />
+                    <Route path="/contact" render={props => <Contact {...props} />} />
                     <Route render={() => <Erreur><Erreur404 /></Erreur>} />
                 </Switch>
             </Container>
